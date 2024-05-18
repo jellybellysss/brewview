@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const beers = [
         {
-            name: "Craft Beer 1",
-            img: "https://via.placeholder.com/150",
+            name: "HERETIC JUICIER THAN THOU",
+            img: "pictures/IPA/HereticJuicierThanThou_2048x.webp",
             style: "IPA",
             flavour: "Citrus",
-            details: "This is a great IPA with citrus notes."
+            ABV: "6.5%",
+            details: "Heretic helped make America a little more juicy with their Make America Juicy Again, but some ‘juiceheads’ just can’t get enough. So now they’re making things even more juicy. They’ve upped our game by adding delicious mango and a bit of creamy lactose. This beer is full of juicy hops and juicy tropical fruit. And it could be so juicy, it is juicier than thou."
         },
         {
             name: "Craft Beer 2",
