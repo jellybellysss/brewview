@@ -20,7 +20,42 @@ document.addEventListener('DOMContentLoaded', function() {
             style: "Lager",
             flavour: "Hoppy",
             details: "This is a crisp lager with hoppy notes."
-        }
+        },
+        {
+            name: "Craft Beer 4",
+            img: "https://via.placeholder.com/150",
+            style: "Lager",
+            flavour: "Hoppy",
+            details: "This is a crisp lager with hoppy notes."
+        },
+        {
+            name: "Craft Beer 5",
+            img: "https://via.placeholder.com/150",
+            style: "Lager",
+            flavour: "Hoppy",
+            details: "This is a crisp lager with hoppy notes."
+        },
+        {
+            name: "Craft Beer 6",
+            img: "https://via.placeholder.com/150",
+            style: "Lager",
+            flavour: "Hoppy",
+            details: "This is a crisp lager with hoppy notes."
+        },
+        {
+            name: "Craft Beer 7",
+            img: "https://via.placeholder.com/150",
+            style: "Lager",
+            flavour: "Hoppy",
+            details: "This is a crisp lager with hoppy notes."
+        },
+        {
+            name: "Craft Beer 8",
+            img: "https://via.placeholder.com/150",
+            style: "Lager",
+            flavour: "Hoppy",
+            details: "This is a crisp lager with hoppy notes."
+        },
         // Add more beer objects here
     ];
 

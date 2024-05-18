@@ -12,12 +12,13 @@ body {
 header {
     background-color: #fbda36;
     color: #3a3c40;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
+    border-radius: 10px;
 }
 
 #disclaimer {
-    font-size: 8px;
+    font-size: 10px;
 }
 
 #banner{
@@ -66,9 +67,10 @@ h2 {
     background-color: #eaeaea;
     padding: 10px;
     border-radius: 5px;
-    width: calc(33% - 20px);
+    width: calc(25% - 20px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
+    box-sizing: border-box;
 }
 
 .beer-item img, .beer-detail-item img {
