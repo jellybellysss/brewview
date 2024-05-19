@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const beers = [
+    const allBeers = [
         {
             name: "Golden Lager",
             img: "./pictures/golden_lager.png",
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             details: "A smooth and refreshing lager with a perfect balance of malt and hops."
         },
         {
-            name: "Hoppy IPA",
+            name: "Hoppy IPA1",
             img: "./pictures/hoppy_ipa.png",
             style: "IPA",
             flavour: "Hoppy",
@@ -17,73 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
             details: "A bold IPA with strong hoppy flavors and a hint of citrus."
         },
         {
-            name: "Hoppy IPA",
+            name: "Hoppy IPA2",
             img: "./pictures/hoppy_ipa.png",
-            style: "IPA",
-            flavour: "Hoppy",
-            ABV: "6.5%",
-            details: "A bold IPA with strong hoppy flavors and a hint of citrus."
-        },
-        {
-            name: "Hoppy IPA",
-            img: "./pictures/hoppy_ipa.png",
-            style: "IPA",
-            flavour: "Hoppy",
-            ABV: "6.5%",
-            details: "A bold IPA with strong hoppy flavors and a hint of citrus."
-        },
-        {
-            name: "Hoppy IPA",
-            img: "./pictures/hoppy_ipa.png",
-            style: "IPA",
-            flavour: "Hoppy",
-            ABV: "6.5%",
-            details: "A bold IPA with strong hoppy flavors and a hint of citrus."
-        },
-        {
-            name: "Hoppy IPA",
-            img: "./pictures/hoppy_ipa.png",
-            style: "IPA",
-            flavour: "Hoppy",
-            ABV: "6.5%",
-            details: "A bold IPA with strong hoppy flavors and a hint of citrus."
-        },
-        {
-            name: "Hoppy IPA",
-            img: "./pictures/hoppy_ipa.png",
-            style: "IPA",
-            flavour: "Hoppy",
-            ABV: "6.5%",
-            details: "A bold IPA with strong hoppy flavors and a hint of citrus."
-        },
-        {
-            name: "Hoppy IPA",
-            img: "./pictures/hoppy_ipa.png",
-            style: "IPA",
-            flavour: "Hoppy",
-            ABV: "6.5%",
-            details: "A bold IPA with strong hoppy flavors and a hint of citrus."
-        },
-        {
-            name: "Hoppy IPA",
-            img: "./pictures/hoppy_ipa.png",
-            style: "IPA",
-            flavour: "Hoppy",
-            ABV: "6.5%",
-            details: "A bold IPA with strong hoppy flavors and a hint of citrus."
-        },
-        {
-            name: "Hoppy IPA",
-            img: "./pictures/hoppy_ipa.png",
-            style: "IPA",
-            flavour: "Hoppy",
-            ABV: "6.5%",
-            details: "A bold IPA with strong hoppy flavors and a hint of citrus."
-        },
-        {
-            name: "Hoppy IPA",
-            img: "./pictures/hoppy_ipa.png",
-            style: "IPA",
+            style: "Stout",
             flavour: "Hoppy",
             ABV: "6.5%",
             details: "A bold IPA with strong hoppy flavors and a hint of citrus."
@@ -91,40 +27,72 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add more beer objects as needed
     ];
 
-    const beerList = document.getElementById('home-beer-list');
-    const beerDetails = document.getElementById('beer-details');
+    const beerList = document.getElementById('beer-list');
     const styleFilter = document.getElementById('styleFilter');
     const flavourFilter = document.getElementById('flavourFilter');
 
-    function displayHomeBeers() {
+    function displayBeers(beers) {
         beerList.innerHTML = '';
+        const selectedStyle = styleFilter.value;
+        const selectedFlavour = flavourFilter.value;
 
-        for (let i = 0; i < 8; i++) {
-            const beer = beers[i];
+        const filteredBeers = beers.filter(beer => {
+            const styleMatch = selectedStyle === 'all' || beer.style === selectedStyle;
+            const flavourMatch = selectedFlavour === 'all' || beer.flavour === selectedFlavour;
+            return styleMatch && flavourMatch;
+        });
+
+        filteredBeers.forEach(beer => {
             const beerItem = document.createElement('div');
             beerItem.className = 'beer-item';
             beerItem.innerHTML = `
                 <img src="${beer.img}" alt="${beer.name}">
                 <h3>${beer.name}</h3>
                 <p>${beer.flavour}</p>
-                <button onclick="showDetails('${beer.name}')">View More</button>
+                <button onclick="showDetails('${beer.name}', '${beer.img}', '${beer.style}', '${beer.flavour}', '${beer.ABV}', '${beer.details}')">View More</button>
             `;
             beerList.appendChild(beerItem);
+        });
+    }
+
+    function showDetails(name, img, style, flavour, ABV, details) {
+        localStorage.setItem("selectedBeer", JSON.stringify({ name, img, style, flavour, ABV, details }));
+        window.location.href = "Pages/beer_details.html";
+    }
+
+    function goBack() {
+        window.location.href = "Pages/beer_discovery.html";
+    }
+
+    if (window.location.pathname === '/index.html') {
+        // Homepage logic
+        const topSellingBeers = allBeers.slice(0, 2); // Select top selling beers
+        topSellingBeers.forEach(beer => {
+            const beerItem = document.createElement('div');
+            beerItem.className = 'beer-item';
+            beerItem.innerHTML = `
+                <img src="${beer.img}" alt="${beer.name}">
+                <h3>${beer.name}</h3>
+                <p>${beer.flavour}</p>
+                <button onclick="showDetails('${beer.name}', '${beer.img}', '${beer.style}', '${beer.flavour}', '${beer.ABV}', '${beer.details}')">View More</button>
+            `;
+            beerList.appendChild(beerItem);
+        });
+    } else {
+        // Beer discovery page logic
+        styleFilter.addEventListener('change', function() {
+            displayBeers(allBeers);
+        });
+        
+        flavourFilter.addEventListener('change', function() {
+            displayBeers(allBeers);
+        });
+
+        displayBeers(allBeers);
+
+        const backButton = document.getElementById('back-button');
+        if (backButton) {
+            backButton.addEventListener('click', goBack);
         }
     }
-
-    window.showDetails = function(beerName) {
-        const beer = beers.find(b => b.name === beerName);
-        localStorage.setItem("selectedBeer", JSON.stringify(beer));
-        window.location.href = "beer_details.html";
-    }
-
-    displayHomeBeers();
 });
-
-function goBack() {
-    window.location.href = "beer_discovery.html";
-}
-
-displayBeerDetails();
-backButton.addEventListener('click', goBack);
