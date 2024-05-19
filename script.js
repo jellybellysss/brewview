@@ -63,8 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             flavour: "Citrus",
             ABV: "5%",
             details: "A smooth and refreshing lager with a perfect balance of malt and hops."
-        },
-        // Add more beer objects as needed
+        }
     ];
 
     const beerList = document.getElementById('beer-list');
@@ -95,14 +94,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function showDetails(name, img, style, flavour, ABV, details) {
+    window.showDetails = function(name, img, style, flavour, ABV, details) {
         const beer = { name, img, style, flavour, ABV, details };
         localStorage.setItem("selectedBeer", JSON.stringify(beer));
-        window.location.href = "Pages/beer_details.html";
+        window.location.href = "beer_details.html";
     }
 
     function goBack() {
-        window.location.href = "Pages/beer_discovery.html";
+        window.location.href ="beer_discovery.html";
     }
 
     if (window.location.pathname === '/index.html') {
