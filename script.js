@@ -24,6 +24,46 @@ document.addEventListener('DOMContentLoaded', function() {
             ABV: "6.5%",
             details: "A bold IPA with strong hoppy flavors and a hint of citrus."
         },
+        {
+            name: "Golden Lager2",
+            img: "./pictures/golden_lager.png",
+            style: "Lager",
+            flavour: "Malty",
+            ABV: "5%",
+            details: "A smooth and refreshing lager with a perfect balance of malt and hops."
+        },
+        {
+            name: "Stout",
+            img: "./pictures/golden_lager.png",
+            style: "Stout",
+            flavour: "Malty",
+            ABV: "5%",
+            details: "A smooth and refreshing lager with a perfect balance of malt and hops."
+        },
+        {
+            name: "Citrus Eg",
+            img: "./pictures/golden_lager.png",
+            style: "Lager",
+            flavour: "Citrus",
+            ABV: "5%",
+            details: "A smooth and refreshing lager with a perfect balance of malt and hops."
+        },
+        {
+            name: "Golden Lager456",
+            img: "./pictures/golden_lager.png",
+            style: "Stout",
+            flavour: "Hoppy",
+            ABV: "5%",
+            details: "A smooth and refreshing lager with a perfect balance of malt and hops."
+        },
+        {
+            name: "Another example",
+            img: "./pictures/golden_lager.png",
+            style: "IPA",
+            flavour: "Citrus",
+            ABV: "5%",
+            details: "A smooth and refreshing lager with a perfect balance of malt and hops."
+        },
         // Add more beer objects as needed
     ];
 
@@ -56,7 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showDetails(name, img, style, flavour, ABV, details) {
-        localStorage.setItem("selectedBeer", JSON.stringify({ name, img, style, flavour, ABV, details }));
+        const beer = { name, img, style, flavour, ABV, details };
+        localStorage.setItem("selectedBeer", JSON.stringify(beer));
         window.location.href = "Pages/beer_details.html";
     }
 
