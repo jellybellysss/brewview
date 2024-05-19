@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew View</title>
+    <title>Beer Discovery</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <header>
-        <img id="banner" src="./pictures/Banner2.png" alt="banner">
+        <img id="banner" src="/pictures/Banner2.png" alt="banner">
         <nav>
             <ul>
-                <li class="head"><a href="/Pages/beer_discovery.html">Beer Discovery</a></li>
+                <li class="head"><a href="/index.html">Home</a></li>
                 <li class="head"><a href="/Pages/beer_details.html">Beer Details</a></li>
                 <li class="head"><a href="/Pages/about_us.html">About Us</a></li>
             </ul>
@@ -20,6 +20,22 @@
     <main>
         <section id="discover">
             <h2>Discover Craft Beers</h2>
+            <div id="filters">
+                <label for="styleFilter">Style:</label>
+                <select id="styleFilter">
+                    <option value="all">All</option>
+                    <option value="IPA">IPA</option>
+                    <option value="Stout">Stout</option>
+                    <option value="Lager">Lager</option>
+                </select>
+                <label for="flavourFilter">Flavour Profile:</label>
+                <select id="flavourFilter">
+                    <option value="all">All</option>
+                    <option value="Citrus">Citrus</option>
+                    <option value="Malty">Malty</option>
+                    <option value="Hoppy">Hoppy</option>
+                </select>
+            </div>
             <div id="beer-list" class="beer-list">
                 <!-- Beer items will be dynamically inserted here -->
             </div>
