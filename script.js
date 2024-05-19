@@ -107,7 +107,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (window.location.pathname === '/index.html') {
         // Homepage logic
-        const topSellingBeers = allBeers.slice(0, 2); // Select top selling beers
+        const topSellingBeers = allBeers.filter(beer => 
+            beer.name === "Golden Lager456" || 
+            beer.name === "Another example" || 
+            beer.name === "Stout"
+        ); // Select top selling beers
         topSellingBeers.forEach(beer => {
             const beerItem = document.createElement('div');
             beerItem.className = 'beer-item';
