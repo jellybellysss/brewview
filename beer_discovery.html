@@ -12,7 +12,7 @@
         <nav>
             <ul>
                 <li class="head"><a href="index.html">Home</a></li>
-                <li class="head"><a href="beer_details.html">Beer Details</a></li>
+                <li class="head"><a href="beer_discovery.html">Beer Discovery</a></li>
                 <li class="head"><a href="about_us.html">About Us</a></li>
             </ul>
         </nav>
@@ -37,8 +37,50 @@
                 </select>
             </div>
             <div id="beer-list" class="beer-list">
-                <!-- Beer items will be dynamically inserted here -->
+                <div class="beer-item" data-name="Golden Lager" data-style="Lager" data-flavour="Malty" data-abv="5%" data-details="A smooth and refreshing lager with a perfect balance of malt and hops.">
+                    <img src="./pictures/golden_lager.png" alt="Golden Lager">
+                    <h3>Golden Lager</h3>
+                    <p>Malty</p>
+                    <button onclick="showDetails('Golden Lager')">View More</button>
+                </div>
+                <div class="beer-item" data-name="Hoppy IPA1" data-style="IPA" data-flavour="Hoppy" data-abv="6.5%" data-details="A bold IPA with strong hoppy flavors and a hint of citrus.">
+                    <img src="./pictures/hoppy_ipa.png" alt="Hoppy IPA1">
+                    <h3>Hoppy IPA1</h3>
+                    <p>Hoppy</p>
+                    <button onclick="showDetails('Hoppy IPA1')">View More</button>
+                </div>
+                <div class="beer-item" data-name="Tropical IPA2" data-style="IPA" data-flavour="Citrus" data-abv="7%" data-details="An exotic IPA with tropical fruit aromas and a refreshing citrus finish.">
+                    <img src="./pictures/tropical_ipa.png" alt="Tropical IPA2">
+                    <h3>Tropical IPA2</h3>
+                    <p>Citrus</p>
+                    <button onclick="showDetails('Tropical IPA2')">View More</button>
+                </div>
+                <div class="beer-item" data-name="Chocolate Stout" data-style="Stout" data-flavour="Malty" data-abv="5.5%" data-details="A rich stout with deep chocolate flavors and a smooth finish.">
+                    <img src="./pictures/chocolate_stout.png" alt="Chocolate Stout">
+                    <h3>Chocolate Stout</h3>
+                    <p>Malty</p>
+                    <button onclick="showDetails('Chocolate Stout')">View More</button>
+                </div>
+                <div class="beer-item" data-name="Pale Ale" data-style="Ale" data-flavour="Citrus" data-abv="5.5%" data-details="A balanced pale ale with a crisp citrus bite and a hint of malt.">
+                    <img src="./pictures/pale_ale.png" alt="Pale Ale">
+                    <h3>Pale Ale</h3>
+                    <p>Citrus</p>
+                    <button onclick="showDetails('Pale Ale')">View More</button>
+                </div>
+                <div class="beer-item" data-name="Amber Ale" data-style="Ale" data-flavour="Malty" data-abv="6%" data-details="A smooth amber ale with rich malt flavors and a hint of caramel.">
+                    <img src="./pictures/amber_ale.png" alt="Amber Ale">
+                    <h3>Amber Ale</h3>
+                    <p>Malty</p>
+                    <button onclick="showDetails('Amber Ale')">View More</button>
+                </div>
             </div>
+        </section>
+        <section id="details" class="beer-details" style="display: none;">
+            <h2>Beer Details</h2>
+            <div id="beer-details">
+                <!-- Beer details will be dynamically inserted here -->
+            </div>
+            <button type="button" onclick="goBack()">Back to Discovery</button>
         </section>
     </main>
     <footer>

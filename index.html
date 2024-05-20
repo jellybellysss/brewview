@@ -11,8 +11,8 @@
         <img id="banner" src="./pictures/Banner2.png" alt="banner">
         <nav>
             <ul>
+                <li class="head"><a href="index.html">Home</a></li>
                 <li class="head"><a href="beer_discovery.html">Beer Discovery</a></li>
-                <li class="head"><a href="beer_details.html">Beer Details</a></li>
                 <li class="head"><a href="about_us.html">About Us</a></li>
             </ul>
         </nav>
@@ -21,7 +21,19 @@
         <section id="home-discover">
             <h2>Top Selling Beers</h2>
             <div id="beer-list" class="beer-list">
-                <!-- Beer items will be dynamically inserted here -->
+                <div class="beer-item">
+                    <img src="./pictures/golden_lager.png" alt="Golden Lager">
+                    <h3>Golden Lager</h3>
+                    <p>Malty</p>
+                    <button onclick="showDetails('Golden Lager')">View More</button>
+                </div>
+                <div class="beer-item">
+                    <img src="./pictures/hoppy_ipa.png" alt="Hoppy IPA1">
+                    <h3>Hoppy IPA1</h3>
+                    <p>Hoppy</p>
+                    <button onclick="showDetails('Hoppy IPA1')">View More</button>
+                </div>
+                <!-- Add other top-selling beers here -->
             </div>
         </section>
     </main>
@@ -32,6 +44,4 @@
     </footer>
     <script src="script.js"></script>
 </body>
-
-
 </html>
