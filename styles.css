@@ -24,34 +24,6 @@ header img {
     text-align: justify;
 }
 
-#about-us {
-    position: relative;
-    background-image: url(/pictures/aboutus3.jpeg);
-    background-size: cover; /* Ensure the image covers the entire background */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    background-position: center; /* Center the image */
-    background-attachment: scroll; /* Optional: Makes the background fixed during scrolling */
-    color: black; /* Set a default text color to ensure readability */
-}
-
-/* Create an overlay effect */
-#about-us::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.65); /* Adjust the rgba values to control the overlay color and transparency */
-    z-index: 1;
-}
-
-/* Ensure the content is above the overlay */
-#about-us> * {
-    position: relative;
-    z-index: 2;
-}
-
 nav ul {
     list-style: none;
     margin: 0;

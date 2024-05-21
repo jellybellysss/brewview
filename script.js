@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
             style: "Lager",
             flavour: "Malty",
             ABV: "5%",
-            details: "A smooth and refreshing lager with a perfect balance of malt and hops."
+            details: "A smooth and refreshing lager with a perfect balance of malt and hops.",
+            top: true
         },
         {
             name: "Hoppy IPA1",
@@ -22,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
             style: "IPA",
             flavour: "Citrus",
             ABV: "7%",
-            details: "An exotic IPA with tropical fruit aromas and a refreshing citrus finish."
+            details: "An exotic IPA with tropical fruit aromas and a refreshing citrus finish.",
+            top: true
         },
         {
             name: "Chocolate Stout",
@@ -57,14 +59,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const flavourFilter = document.getElementById('flavourFilter');
 
     function displayBeers(beers) {
-        const selectedStyle = styleFilter.value;
-        const selectedFlavour = flavourFilter.value;
+        const selectedStyle = styleFilter && styleFilter.value;
+        const selectedFlavour = flavourFilter && flavourFilter.value;
 
         beerList.innerHTML = '';
-        const filteredBeers = beers.filter(beer => {
-            return (selectedStyle === 'all' || beer.style === selectedStyle) &&
-                   (selectedFlavour === 'all' || beer.flavour === selectedFlavour);
-        });
+        let filteredBeers;
+        if (selectedStyle && selectedFlavour) {
+            filteredBeers = beers.filter(beer => {
+                return (selectedStyle === 'all' || beer.style === selectedStyle) &&
+                       (selectedFlavour === 'all' || beer.flavour === selectedFlavour);
+            });
+        } else {
+            filteredBeers = beers.filter(beer => {
+                return beer.top
+            })
+        }
 
         filteredBeers.forEach(beer => {
             const beerItem = document.createElement('div');
@@ -99,8 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
         beerList.style.display = 'flex';
     }
 
-    styleFilter.addEventListener('change', () => displayBeers(allBeers));
-    flavourFilter.addEventListener('change', () => displayBeers(allBeers));
+    styleFilter && styleFilter.addEventListener('change', () => displayBeers(allBeers));
+    flavourFilter && flavourFilter.addEventListener('change', () => displayBeers(allBeers));
 
     displayBeers(allBeers);
+
 });
