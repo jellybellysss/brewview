@@ -98,6 +98,10 @@ h2 {
     .beer-list .beer-item {
         width: calc(100% - 20px);
     }
+
+    .beer-item{
+        padding: 5px;
+    }
 }
 
 .beer-item {
