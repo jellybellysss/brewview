@@ -53,6 +53,16 @@ h2 {
 
 .moving-text {
     text-align: left;
+    animation: moveText 10s linear infinite alternate;
+}
+
+@keyframes moveText {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 #filters {
@@ -66,30 +76,34 @@ h2 {
     margin: 0 10px;
 }
 
-.moving-text {
-    animation: moveText 10s linear infinite alternate;
-}
-
-@keyframes moveText {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-
 .beer-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+@media screen and (min-width: 768px) {
+    .beer-list .beer-item {
+        width: calc(25% - 20px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .beer-list .beer-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .beer-list .beer-item {
+        width: calc(100% - 20px);
+    }
+}
+
 .beer-item {
     margin: 10px;
     padding: 10px;
     border: 1px solid #ccc;
-    width: calc(25% - 20px);
     box-sizing: border-box;
     text-align: center;
 }
@@ -136,7 +150,7 @@ h2 {
 }
 
 .small-image {
-    height: auto;
+    max-height: 40em;
     width: auto;
 }
 
