@@ -17,10 +17,10 @@ header {
 
 header img {
     border-radius: 70px;
-    height: 150px;;
+    height: 150px;
 }
 
-#about-us{
+#about-us {
     text-align: justify;
 }
 
@@ -51,7 +51,7 @@ h2 {
     text-align: center;
 }
 
-.moving-text{
+.moving-text {
     text-align: left;
 }
 
@@ -66,7 +66,6 @@ h2 {
     margin: 0 10px;
 }
 
-
 .moving-text {
     animation: moveText 10s linear infinite alternate;
 }
@@ -79,6 +78,7 @@ h2 {
         transform: translateX(100%);
     }
 }
+
 .beer-list {
     display: flex;
     flex-wrap: wrap;
@@ -91,7 +91,7 @@ h2 {
     border: 1px solid #ccc;
     width: calc(25% - 20px);
     box-sizing: border-box;
-    text-align:center;
+    text-align: center;
 }
 
 .beer-item img {
@@ -133,6 +133,20 @@ h2 {
 
 #beer-details p {
     margin: 5px 0;
+}
+
+.small-image {
+    height: auto;
+    width: auto;
+}
+
+.details-container {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+}
+
+.details-container img {
+    margin-right: 20px; /* Add some space between the image and the text */
 }
 
 footer {

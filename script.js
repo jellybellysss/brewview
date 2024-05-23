@@ -1,13 +1,46 @@
 document.addEventListener('DOMContentLoaded', function() {
     const allBeers = [
         {
-            name: "Golden Lager",
-            img: "./pictures/golden_lager.png",
-            style: "Lager",
-            flavour: "Malty",
-            ABV: "5%",
-            details: "A smooth and refreshing lager with a perfect balance of malt and hops.",
+            name: "BEAR REPUBLIC RIVER ROAD",
+            img: "/pictures/IPA/BEAR REPUBLIC RIVER ROAD.webp",
+            style:"IPA",
+            flavour:"Hoppy & Aromatic",
+            ABV:"7.5%",
+            details: "Introducing River Road IPA, a journey through the West Coast IPA style that captures the spirit of Northern California! A West Coast IPA hopped with Amarillo, Citra, Cascade, El Dorado and Waimea hops.",
             top: true
+        },
+        {
+            name: "DESCHUTES FRESH HAZE",
+            img: "/pictures/IPA/DeschutesFreshHaze.webp",
+            style:"IPA",
+            flavour:"Hoppy & Aromatic",
+            ABV:"6.5%",
+            details: "Introducing the Deschutes Fresh Haze IPA, a twist on the flagship Fresh Squeezed IPA with a hazy and foggy body. This beer explodes in your mouth with orange and tangerine sweetness, with flaked barley and a soft malt body. Citrus-charged from Mandarina, Amarillo and Cashmere hops, this is orange juice for adults!",
+        },
+        {
+            name: "DESCHUTES FRESH SQUEEZED IPA",
+            img: "/pictures/IPA/DeschutesFreshSqueezed.webp",
+            style:"IPA",
+            flavour:"Hoppy & Aromatic",
+            ABV:"6.4%",
+            details: "The Deschutes Fresh Squeezed IPA is a mouthwatering and tasty beer that gets its flavour from Citra and Mosaic hops. The citrus and grapefruit gives a fresh aroma as though fresh hops were squeezed right into the bottle! Don't worry, no fruit was harmed in the making of this beer.",
+        },
+        {
+            name: "HERETIC JUICIER THAN THOU",
+            img: "/pictures/IPA/HereticJuicierThanThou.webp",
+            style:"IPA",
+            flavour:"Hoppy & Aromatic",
+            ABV:"6.5%",
+            details: "Heretic helped make America a little more juicy with their Make America Juicy Again, but some ‘juiceheads’ just can’t get enough. So now they’re making things even more juicy. They’ve upped our game by adding delicious mango and a bit of creamy lactose. This beer is full of juicy hops and juicy tropical fruit. And it could be so juicy, it is juicier than thou.",
+            top: true
+        },
+        {
+            name: "KNEE DEEP THUNDER BUDDIES",
+            img: "/pictures/IPA/KneeDeepThunderBuddies.webp",
+            style:"IPA",
+            flavour:"Hoppy & Aromatic",
+            ABV:"7.0%",
+            details: "Knee Deep Brewing Company's Thunder Buddies Hazy IPA is a behemoth of a beer that embodies the essence of a juicy, hazy IPA. This beer pours a murky, golden-orange hue, reminiscent of a warm summer sunset. The aroma is a tropical explosion, with notes of pineapple, mango, and citrus fruits, tantalizing your senses and beckoning you to take a sip. Made using Rakau, Waimea, Wai-Ti, Huell Melon and Hallertau Blanc hops.",
         },
         {
             name: "Hoppy IPA1",
@@ -91,12 +124,16 @@ document.addEventListener('DOMContentLoaded', function() {
     window.showDetails = function(beerName) {
         const beer = allBeers.find(b => b.name === beerName);
         beerDetails.innerHTML = `
-            <img src="${beer.img}" alt="${beer.name}">
-            <h3>${beer.name}</h3>
-            <p>Style: ${beer.style}</p>
-            <p>Flavour: ${beer.flavour}</p>
-            <p>ABV: ${beer.ABV}</p>
-            <p>${beer.details}</p>
+        <div class="details-container">
+            <img src="${beer.img}" alt="${beer.name}" class="small-image">
+            <div>
+                <h3>${beer.name}</h3>
+                <p><strong>Style:</strong> ${beer.style}</p>
+                <p><strong>Flavour:</strong> ${beer.flavour}</p>
+                <p><strong>ABV:</strong> ${beer.ABV}</p>
+                <p><strong>Details:</strong> ${beer.details}</p>
+            </div>
+        </div>
         `;
         detailsSection.style.display = 'block';
         beerList.style.display = 'none';
