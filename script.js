@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
             beerItem.innerHTML = `
                 <img src="${beer.img}" alt="${beer.name}">
                 <h3>${beer.name}</h3>
-                <p>${beer.flavour}</p>
+                <p>${beer.style}</p>
                 <button onclick="showDetails('${beer.name}')">View More</button>
             `;
             beerList.appendChild(beerItem);
