@@ -164,6 +164,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const beerDetails = document.getElementById('beer-details');
     const styleFilter = document.getElementById('styleFilter');
     const flavourFilter = document.getElementById('flavourFilter');
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
 
     function displayBeers(beers) {
         const selectedStyle = styleFilter && styleFilter.value;
@@ -229,9 +231,23 @@ document.addEventListener('DOMContentLoaded', function() {
         detailsSection.style.display = 'block';
         beerList.style.display = 'none';
     }
+    function searchBeers(query) {
+        const lowercaseQuery = query.toLowerCase();
+        const filteredBeers = allBeers.filter(beer => {
+            return beer.name.toLowerCase().includes(lowercaseQuery);
+        });
+        displayBeers(filteredBeers);
+    }
 
+    // Event listener for search button click and pressing Enter in the search input field
+    function handleSearch() {
+        const searchQuery = searchInput.value.trim();
+        if (searchQuery!==''){
+        searchBeers(searchQuery);
+        }
+    }
     
-    window.goBack = function() {
+        window.goBack = function() {
         detailsSection.style.display = 'none';
         beerList.style.display = 'flex';
     }
@@ -239,6 +255,16 @@ document.addEventListener('DOMContentLoaded', function() {
     styleFilter && styleFilter.addEventListener('change', () => displayBeers(allBeers));
     flavourFilter && flavourFilter.addEventListener('change', () => displayBeers(allBeers));
 
+    searchButton.addEventListener('click', handleSearch);
+    searchInput.addEventListener('keypress', function(event) {
+        // Check if the pressed key is Enter
+        if (event.key === 'Enter') {
+            // Prevent the default Enter key behavior (e.g., form submission)
+            event.preventDefault();
+            // Call the handleSearch function
+            handleSearch();
+        }
+    });
     displayBeers(allBeers);
 
 });

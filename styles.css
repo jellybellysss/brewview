@@ -65,7 +65,7 @@ h2 {
     }
 }
 
-#filters {
+#filters #home-discover{
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
@@ -80,6 +80,19 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.top-selling {
+    width: 20px; /* Adjust the size as needed */
+    top: 1px; /* Adjust the top position */
+    right: 1%; /* Adjust the right position */
+    z-index: 1;
+}
+
+
+
+.top-selling .topIcon {
+    display: inline-block; /* Make the icon visible */
 }
 
 @media screen and (min-width: 768px) {
