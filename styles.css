@@ -7,6 +7,12 @@ body {
     padding: 0;
 }
 
+/* display: flex: Applies Flexbox layout to the body.
+flex-direction: column: Stacks child elements vertically.
+min-height: 100vh: Ensures the body is at least the height of the viewport.
+font-family: Arial, sans-serif: Sets the font for the entire page.
+margin: 0; padding: 0: Removes default margin and padding. */
+
 header {
     background-color: #fbda36;
     color: #3a3c40;
@@ -14,6 +20,9 @@ header {
     text-align: center;
     border-radius: 10px;
 }
+
+/* header: Styles the header with a yellow background, dark text, padding, centered text, and rounded corners.
+header img: Makes header images circular and sets their height to 150px. */
 
 header img {
     border-radius: 70px;
@@ -42,6 +51,10 @@ nav ul li a {
     font-weight: bold;
 }
 
+/* nav ul: Removes bullets, margins, and padding from the unordered list, centers its items horizontally.
+nav ul li: Adds horizontal margin between list items.
+nav ul li a: Styles links with a specific color, removes underlines, and makes the text bold. */
+
 main {
     flex: 1;
     padding: 20px;
@@ -65,6 +78,10 @@ h2 {
     }
 }
 
+/* .moving-text: Adds left-aligned text with an animation that moves it horizontally.
+@keyframes moveText: Defines the animation that shifts text from the start to the end horizontally. */
+
+
 #filters #home-discover{
     display: flex;
     justify-content: center;
@@ -75,6 +92,9 @@ h2 {
 #filters select {
     margin: 0 10px;
 }
+
+/* #filters #home-discover: Centers its children with Flexbox and adds bottom margin.
+#filters label, #filters select: Adds horizontal margin to labels and select elements within #filters. */
 
 .beer-list {
     display: flex;
@@ -90,10 +110,6 @@ h2 {
 }
 
 
-
-.top-selling .topIcon {
-    display: inline-block; /* Make the icon visible */
-}
 
 @media screen and (min-width: 768px) {
     .beer-list .beer-item {
@@ -116,6 +132,10 @@ h2 {
         padding: 5px
     }
 }
+/* Media queries adjust the width of .beer-item based on screen size.
+>= 768px: 25% width minus 20px.
+<= 767px: 50% width minus 20px.
+<= 480px: 100% width minus 20px and reduces padding to 5px. */
 
 .beer-item {
     margin: 10px;
@@ -146,6 +166,13 @@ h2 {
     border: none;
     cursor: pointer;
 }
+
+/* .beer-item: Adds margin, padding, border, and centers text. Ensures padding is included in total width/height (box-sizing: border-box).
+.beer-item img: Makes images responsive.
+.beer-item h3: Adds vertical margins to headings.
+.beer-item p: Adds vertical margins to paragraphs.
+.beer-item button: Styles buttons with padding, background color, text color, no border, and a pointer cursor. */
+
 
 #details {
     display: none;
@@ -180,6 +207,12 @@ h2 {
     margin-right: 20px; /* Add some space between the image and the text */
 }
 
+/* #details: Hides the details section by default.
+#beer-details img: Makes images responsive and centers them with margin.
+#beer-details h3, #beer-details p: Adds vertical margins to headings and paragraphs.
+.small-image: Restricts image height while maintaining aspect ratio.
+.details-container: Uses Flexbox to align items at the top and adds margin between image and text. */
+
 footer {
     background-color: #333;
     color: #fff;
@@ -194,3 +227,6 @@ footer p {
 #disclaimer {
     font-size: 0.5em;
 }
+/* footer: Styles footer with dark background, white text, padding, and centered text.
+footer p: Adds vertical margins to paragraphs.
+#disclaimer: Reduces the font size for disclaimer text. */

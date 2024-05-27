@@ -1,3 +1,7 @@
+// The code begins with an event listener that waits for the entire document to be loaded before executing the enclosed functions. This ensures that all elements are available in the DOM when the script runs.
+
+// An array allBeers contains objects representing different beers. Each beer object includes properties such as name, img (image path), style, flavour, ABV, details, and top.
+
 document.addEventListener('DOMContentLoaded', function() {
     const allBeers = [
         {
@@ -159,16 +163,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     ];
 
-    const beerList = document.getElementById('beer-list');
-    const detailsSection = document.getElementById('details');
-    const beerDetails = document.getElementById('beer-details');
-    const styleFilter = document.getElementById('styleFilter');
-    const flavourFilter = document.getElementById('flavourFilter');
-    const searchInput = document.getElementById('searchInput');
-    const searchButton = document.getElementById('searchButton');
 
+  // Get the element where the list of beers will be shown
+  const beerList = document.getElementById('beer-list');
+  // Get the section where detailed information about a beer will be shown
+  const detailsSection = document.getElementById('details');
+  // Get the element where beer details will be placed
+  const beerDetails = document.getElementById('beer-details');
+  // Get the dropdown for filtering by style
+  const styleFilter = document.getElementById('styleFilter');
+  // Get the dropdown for filtering by flavour
+  const flavourFilter = document.getElementById('flavourFilter');
+  // Get the search input box
+  const searchInput = document.getElementById('searchInput');
+  // Get the search button
+  const searchButton = document.getElementById('searchButton');
+
+
+   // Function to display the list of beers based on filters or search
     function displayBeers(beers) {
+        // Get the selected style from the dropdown
         const selectedStyle = styleFilter && styleFilter.value;
+        // Get the selected flavour from the dropdown
         const selectedFlavour = flavourFilter && flavourFilter.value;
 
         //incase the code below breaks, this is my original code for without the multiple flavour filter.
@@ -185,22 +201,28 @@ document.addEventListener('DOMContentLoaded', function() {
         //     })
         // }
         
+        // Clear the current list of beers
         beerList.innerHTML = '';
         let filteredBeers;
         if (selectedStyle && selectedFlavour) {
+            // Filter beers by both style and flavour
             filteredBeers = beers.filter(beer => {
                 return (selectedStyle === 'all' || beer.style === selectedStyle) &&
                        (selectedFlavour === 'all' || beer.flavour.includes(selectedFlavour));
             });
         } else if (selectedStyle) {
+            // Filter beers by style only
             filteredBeers = beers.filter(beer => selectedStyle === 'all' || beer.style === selectedStyle);
         } else if (selectedFlavour) {
+            // Filter beers by flavour only
             filteredBeers = beers.filter(beer => selectedFlavour === 'all' || beer.flavour.includes(selectedFlavour));
         } else {
+             // Show top-rated beers if no filters are selected
             filteredBeers = beers.filter(beer =>{
                 return beer.top
             })
         }
+        // For each filtered beer, create a little box with its picture, name, and a button for details
         filteredBeers.forEach(beer => {
             const beerItem = document.createElement('div');
             beerItem.classList.add('beer-item');
@@ -214,8 +236,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+   
+ // Function to show detailed information about a beer
     window.showDetails = function(beerName) {
+    // Find the beer by its name
         const beer = allBeers.find(b => b.name === beerName);
+    // Display detailed information about the beer
         beerDetails.innerHTML = `
         <div class="details-container">
             <img src="${beer.img}" alt="${beer.name}" class="small-image">
@@ -228,30 +254,39 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
         `;
+    // Show the details section and hide the beer list
         detailsSection.style.display = 'block';
         beerList.style.display = 'none';
     }
+
+    // The searchBeers function filters beers based on a search query entered by the user. It checks if the beer name includes the search query (case-insensitive).
+    // Function to search beers by name
     function searchBeers(query) {
+         // Find beers that match the search query
         const lowercaseQuery = query.toLowerCase();
         const filteredBeers = allBeers.filter(beer => {
+            // Display the matched beers
             return beer.name.toLowerCase().includes(lowercaseQuery);
         });
         displayBeers(filteredBeers);
     }
 
     // Event listener for search button click and pressing Enter in the search input field
+     // Function to handle search actions
     function handleSearch() {
         const searchQuery = searchInput.value.trim();
         if (searchQuery!==''){
+        // If there's a search query, search for beers
         searchBeers(searchQuery);
         }
     }
-    
+    // Function to go back to the beer list from the details view
         window.goBack = function() {
         detailsSection.style.display = 'none';
         beerList.style.display = 'flex';
     }
 
+    // Add event listeners to filters and search components
     styleFilter && styleFilter.addEventListener('change', () => displayBeers(allBeers));
     flavourFilter && flavourFilter.addEventListener('change', () => displayBeers(allBeers));
 
@@ -265,6 +300,8 @@ document.addEventListener('DOMContentLoaded', function() {
             handleSearch();
         }
     });
+
+    // Calls displayBeers with the full list of beers to initialize the display when the page loads.
     displayBeers(allBeers);
 
 });
