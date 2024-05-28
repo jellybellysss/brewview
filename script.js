@@ -60,8 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             style: "IPA",
             flavour: "Bold & Bitter",
             ABV: "8.2%",
-            details: "Wonderfully delicious and intensely bitter flavor on a refreshing malt base. Those who seek, crave and rejoice in beers with big, bold, bitter character will find true nirvana.",
-            top: true
+            details: "Wonderfully delicious and intensely bitter flavor on a refreshing malt base. Those who seek, crave and rejoice in beers with big, bold, bitter character will find true nirvana."
         },
         {
             name: "REVISION CITRA SLAM",
@@ -159,6 +158,23 @@ document.addEventListener('DOMContentLoaded', function() {
             flavour:["Light & Easy Going"],
             ABV: "4.8%",
             details: "Brewed primarily with the Citra hops. Designed to be a session beer, the pale ale seeks a delicate balance between both hops and malt. It brings familiarity, yet never fails to surprise the palate with the subtle bursts of Citra. Pours well with a fully formed head of foam and is probably the most versatile beer to pair with any foods."
+        },
+        {
+            name: "LION CITY SPICED MEAD",
+            img: "pictures/IPA/lion-city_Spiced-Mead.webp",
+            style: "Mead and Ale",
+            flavour:["Light & Easy Going", "Medium & Balanced"],
+            ABV: "5.5%",
+            details: "A homage to the masala chai, this clear blonde mead is a pleasant surprise with its taste profile and complex long finish. Spices like cinnamon, cloves, and star anise were roasted whole and fermented with a custom blend of eucalyptus honey. Best savoured chilled and in a glass.Took home Silver in Category and Best of Singapore at Beerfest Asia 2019.",
+            top: true
+        },
+        {
+            name: "LION CITY HIBISCUS & BLUEBERRY MEAD",
+            img: "pictures/IPA/lion-city_Hibiscus-Blueberry-Mead.webp",
+            style: "Mead and Ale",
+            flavour:["Light & Easy Going", "Fruity & Juicy"],
+            ABV: "5.5%",
+            details: "Hibiscus tea - whole dried flowers are steeped to extract the flavour and colour - is fermented with a custom blend of eucalyptus honey, then finished with both whole-crushed and pureed blueberries. The result? A tannin-rich, floral mead with a dry wine-like finish that is excellent with any meal consisting of red meat. Dark crimson, it's lovely in both sight and taste."
         },
 
     ];
